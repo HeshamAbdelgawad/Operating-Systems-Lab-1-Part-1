@@ -23,7 +23,8 @@ int main(int argc, char* argv[]){
 
         if (strlen(buf) == 0) exit(0); 
         
-        if (fork() == 0){
+        if (fork() != 0){
+            wait(0);
             for (int i = 0; i < len; i++) buf[i] = '\0';
             len = n = 0;
             continue;
